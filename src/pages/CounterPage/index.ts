@@ -1,0 +1,1 @@
+export { CounterPageLazy as CounterPage} from './ui/CounterPage.lazy' 
