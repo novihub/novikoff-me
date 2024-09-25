@@ -1,23 +1,16 @@
-import { CounterPage } from 'pages/CounterPage'
-import { MainPage } from 'pages/MainPage'
+import { HelloPage } from 'pages/HelloPage'
 
 export enum AppRoutes {
-	MAIN = 'main',
-	COUNTER = 'COUNTER'
+	HELLO = 'hello'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-	[AppRoutes.MAIN]: '/',
-	[AppRoutes.COUNTER]: '/counter'
+	[AppRoutes.HELLO]: '/hello',
 }
 
 export const routeConfig = {
-	[AppRoutes.MAIN]: {
-		path: AppRoutes.MAIN,
-		element: <MainPage />
-	},
-	[AppRoutes.COUNTER]: {
-		path: AppRoutes.COUNTER,
-		element: <CounterPage />
+	[AppRoutes.HELLO]: {
+		path: AppRoutes.HELLO,
+		element: <HelloPage />
 	}
 }
