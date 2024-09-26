@@ -1,38 +1,44 @@
 .navbar {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	border: 1px solid #1d2d3d;
-	border-radius: 10px 10px 0 0;
-}
-
-.logo h1 {
-	color: var(--text-color-gray);
-	font-size: var(--font-size-m);
+	display: grid;
+	grid-template-columns: 212px 1fr;
+	border: 1px solid var(--border-color-gray);
+	background-color: var(--bg-color);
+	border-radius: 15px 15px 0 0;
 }
 
 .logo {
-	margin-right: 210px;
-	padding: 1rem 0 1rem 1.5rem;
+	height: 100%;
+}
+
+.logo:hover {
+	color: white;
+	background: #1e2d3d74;
+}
+
+.logo h1 {
+	color: #607b96;
+	font-size: 1rem;
+	padding: 10px 10px 10px 22px;
+	border-right: 1px solid var(--border-color-gray);
 }
 
 .links {
-	display: flex;
+	position: relative;
 	width: 100%;
 }
 
 .links a {
-	border: 1px solid #1d2d3d;
-	padding: 1rem 2rem;
-	font-size: var(--font-size-m);
-	color: var(--text-color-gray);
-}
-
-a.active {
-	border-bottom: 2px solid var(--active-link-color);
-	color: #FFFFFF;
+	display: inline-flex;
+	color: #607b96;
+	font-size: 14px;
+	padding: 10px;
+	height: 100%;
+	border-right: 1px solid var(--border-color-gray);
 }
 
 .links a:last-child {
-	margin-left: auto;
+	position: absolute;
+	right: 0;
+	border-left: 1px solid var(--border-color-gray);
+	border-right: none;
 }

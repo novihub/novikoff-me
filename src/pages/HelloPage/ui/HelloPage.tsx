@@ -1,9 +1,12 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+import Arrow from 'shared/assets/images/HelloPage/arrow-button.svg'
 import BoltDownLeft from 'shared/assets/images/HelloPage/bolt-down-left.svg'
 import BoltDownRight from 'shared/assets/images/HelloPage/bolt-down-right.svg'
 import BoltUpLeft from 'shared/assets/images/HelloPage/bolt-up-left.svg'
 import BoltUpRight from 'shared/assets/images/HelloPage/bolt-up-right.svg'
+import BackgroundBlur from 'shared/assets/images/HelloPage/hello-blur.png'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import cls from './HelloPage.module.scss'
 
 interface HelloPageProps {
@@ -11,9 +14,48 @@ interface HelloPageProps {
 }
 
 const HelloPage: FC<HelloPageProps> = ({ className }) => {
+	const [activeButton, setActiveButton] = useState<number | null>(null)
+
+	const handleClick = (index: number) => {
+		setActiveButton(index)
+
+		setTimeout(() => {
+			setActiveButton(null)
+		}, 200)
+	}
+
+	const handleKeyDown = (event: KeyboardEvent) => {
+		event.preventDefault()
+		switch (event.key) {
+			case 'ArrowUp':
+				handleClick(0) // Обработка нажатия на стрелку вверх
+				break
+			case 'ArrowDown':
+				handleClick(1) // Обработка нажатия на стрелку вниз
+				break
+			case 'ArrowLeft':
+				handleClick(2) // Обработка нажатия на стрелку влево
+				break
+			case 'ArrowRight':
+				handleClick(3) // Обработка нажатия на стрелку вправо
+				break
+			default:
+				break
+		}
+	}
+
+	useEffect(() => {
+		// Добавление обработчика события нажатия клавиш
+		document.addEventListener('keydown', handleKeyDown)
+		return () => {
+			// Удаление обработчика при размонтировании компонента
+			document.removeEventListener('keydown', handleKeyDown)
+		}
+	}, [])
+
 	return (
 		<div className={classNames(cls.helloPage, {}, [className])}>
-			<div className={cls.leftSide}>
+			<section className={cls.leftSide}>
 				<div className={cls.topText}>
 					<h5>Hi all. I am</h5>
 					<h1>Novikoff Max</h1>
@@ -32,31 +74,51 @@ const HelloPage: FC<HelloPageProps> = ({ className }) => {
 						</span>
 					</p>
 				</div>
-			</div>
+			</section>
 
-			<div className={cls.snakeGame}>
-				<div className={cls.snakeContainer}>
-					<BoltUpLeft className={cls.bolt} />
-					<BoltUpRight className={cls.bolt} />
-					<BoltDownLeft className={cls.bolt} />
-					<BoltDownRight className={cls.bolt} />
-					<div className={cls.snakeWindow}>
-						<button className={cls.snakeStart}>start-game</button>
-					</div>
-					<div>
-						<div className={cls.snakeMoveKeysContainer}>
-							<p>// use keyboard</p>
-							<p>// arrows to play</p>
-							<div className={cls.snakeKeys}>
-								<span className={cls.snakeKey}>↑</span>
-								<span className={cls.snakeKey}>↓</span>
-								<span className={cls.snakeKey}>←</span>
-								<span className={cls.snakeKey}>→</span>
-							</div>
+			<section className={cls.console}>
+				<div className={cls.snakeGame}>
+					<div className={cls.snakeContainer}>
+						<BoltUpLeft className={cls.bolt} />
+						<BoltUpRight className={cls.bolt} />
+						<BoltDownLeft className={cls.bolt} />
+						<BoltDownRight className={cls.bolt} />
+						<div className={cls.snakeWindow}>
+							<button className={cls.snakeStart}>start-game</button>
 						</div>
-						<button className={cls.snakeSkip}>Skip</button>
+						<div>
+							<div className={cls.snakeMoveKeysContainer}>
+								<p>// use keyboard</p>
+								<p>// arrows to play</p>
+								<div className={cls.snakeKeys}>
+									<button
+										className={activeButton === 0 ? cls.active : ''}
+										onClick={() => handleClick(0)}
+									>
+										<Arrow />
+									</button>
+									<div>
+										{[2, 1, 3].map(index => (
+											<button
+												key={index}
+												className={activeButton === index ? cls.active : ''}
+												onClick={() => handleClick(index)}
+											>
+												<Arrow />
+											</button>
+										))}
+									</div>
+								</div>
+							</div>
+							<AppLink to='/about-me' className={cls.snakeSkip}>
+								Skip
+							</AppLink>
+						</div>
 					</div>
 				</div>
+			</section>
+			<div className={cls.backgroundBlur}>
+				<img src={BackgroundBlur} alt='' />
 			</div>
 		</div>
 	)

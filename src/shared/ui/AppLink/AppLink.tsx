@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { Link, LinkProps } from 'react-router-dom'
+import { Link, LinkProps, useLocation } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './AppLink.module.scss'
 
@@ -24,10 +24,16 @@ export const AppLink: FC<AppLinkProps> = props => {
 		...otherProps
 	} = props
 
+	const location = useLocation()
+	const isActive = location.pathname === to
+
 	return (
 		<Link
 			to={to}
-			className={classNames(cls.appLink, {}, [className, cls[theme]])}
+			className={classNames(cls.appLink, { [cls.active]: isActive }, [
+				className,
+				cls[theme]
+			])}
 		>
 			{children}
 		</Link>
