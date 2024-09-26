@@ -1,10 +1,11 @@
 .helloPage {
+	flex-grow: 1;
 	display: flex;
 	background: #011627 no-repeat center center fixed;
 	padding-left: 212px;
-	height: 100%;
 	position: relative;
 	overflow: hidden;
+	border-radius: 15px;
 }
 
 .leftSide,
