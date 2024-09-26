@@ -25,7 +25,6 @@ const HelloPage: FC<HelloPageProps> = ({ className }) => {
 	}
 
 	const handleKeyDown = (event: KeyboardEvent) => {
-		event.preventDefault()
 		switch (event.key) {
 			case 'ArrowUp':
 				handleClick(0) // Обработка нажатия на стрелку вверх

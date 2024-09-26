@@ -77,26 +77,26 @@
 	display: flex;
 }
 
-.bolt:first-child {
+.bolt {
 	position: absolute;
+}
+
+.bolt:first-child {
 	left: 0;
 	top: 0;
 }
 
 .bolt:nth-child(2) {
-	position: absolute;
 	right: 0;
 	top: 0;
 }
 
 .bolt:nth-child(3) {
-	position: absolute;
 	left: 0;
 	bottom: 0;
 }
 
-.bolt:last-child {
-	position: absolute;
+.bolt:nth-child(4) {
 	right: 0;
 	bottom: 0;
 }
@@ -105,13 +105,10 @@
 	position: relative;
 	height: 320px;
 	width: 192px;
-	margin: 15px;
+	margin: 20px;
 	border-radius: 8px;
 	background: rgba(1, 22, 39, 0.84);
 	box-shadow: 1px 5px 11px 0px rgba(2, 18, 27, 0.71) inset;
-}
-
-.snakeMoveKeysContainer {
 }
 
 .backgroundBlur {
@@ -134,7 +131,7 @@
 	margin: 1rem;
 	border: 1px solid white;
 	padding: 0.5rem;
-	border-radius: 15px;
+	border-radius: 20px;
 }
 
 .snakeSkip:hover {
@@ -181,7 +178,7 @@
 	background-color: #01142330;
 	border-radius: 7px;
 	padding: 10px;
-	margin: 15px 25px 15px 0;
+	margin: 20px 25px 15px 0;
 	z-index: 1;
 }
 
