@@ -1,0 +1,15 @@
+.snakeStart {
+	display: flex;
+	color: #01080e;
+	background-color: #fea55f;
+	padding: 6px;
+	border-radius: 8px;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.snakeStart:hover {
+	color: white;
+}

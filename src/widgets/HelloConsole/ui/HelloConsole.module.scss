@@ -51,8 +51,6 @@
 
 .snakeWindow {
 	position: relative;
-	height: 320px;
-	width: 192px;
 	margin: 20px;
 	border-radius: 8px;
 	background: rgba(1, 22, 39, 0.84);
@@ -73,22 +71,6 @@
 
 .snakeSkip:hover {
 	background-color: rgba(255, 255, 255, 0.2); /* White with 20% opacity */
-}
-
-.snakeStart {
-	display: flex;
-	color: #01080e;
-	background-color: #fea55f;
-	padding: 6px;
-	border-radius: 8px;
-	position: absolute;
-	bottom: 10%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.snakeStart:hover {
-	color: white;
 }
 
 .snakeKeys {
