@@ -5,7 +5,7 @@
 
 .appLink:hover {
 	color: white;
-	background: #1e2d3d74;
+	background: var(--bg-hovered-gray);
 }
 
 .active {
@@ -20,4 +20,3 @@
 .secondary {
 	color: var(--primary-color);
 }
-

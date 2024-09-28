@@ -8,11 +8,11 @@ html {
 }
 
 #root {
-	margin: 5vh;
+	margin: 3vh;
 }
 
 .app {
-	height: 90vh;
+	height: 94vh;
 }
 
 .app {
@@ -20,7 +20,7 @@ html {
 	background: var(--bg-color);
 	color: var(--primary-color);
 	transition: background 1s;
-	border-radius: 15px;
+	border-radius: 6px;
 	display: flex;
 	flex-direction: column;
 }

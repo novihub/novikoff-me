@@ -1,0 +1,36 @@
+.helloText {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 1;
+	height: 100%;
+	margin-right: 60px;
+}
+
+.topText h5 {
+	color: #e5e9f0;
+	font-size: 18px;
+	padding-left: 3px;
+}
+
+.topText h1 {
+	color: #e5e9f0;
+	font-size: 62px;
+	line-height: 1;
+	font-weight: 400;
+}
+
+.bottomText {
+	font-size: 16px;
+	margin-top: 80px;
+	margin-bottom: 0px;
+}
+
+.bottomText p:last-child {
+	color: #ffffff;
+}
+
+.commentJs {
+	color: var(--text-color-gray);
+	padding-bottom: 10px;
+}

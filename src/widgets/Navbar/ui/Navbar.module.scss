@@ -3,7 +3,7 @@
 	grid-template-columns: 212px 1fr;
 	border: 1px solid var(--border-color-gray);
 	background-color: var(--bg-color);
-	border-radius: 15px 15px 0 0;
+	border-radius: var(--app-radius) var(--app-radius) 0 0;
 }
 
 .logo {
@@ -12,7 +12,7 @@
 
 .logo:hover {
 	color: white;
-	background: #1e2d3d74;
+	background: var(--bg-hovered-gray);
 }
 
 .logo h1 {

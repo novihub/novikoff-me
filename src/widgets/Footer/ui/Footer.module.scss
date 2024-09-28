@@ -1,0 +1,57 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid var(--border-color-gray);
+	border-radius: 0 0 var(--app-radius) var(--app-radius);
+	font-size: 14px;
+	color: #495057;
+	text-align: center;
+	width: 100%;
+}
+
+.findMe {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.findMe span {
+	display: flex;
+	align-items: center;
+	border-right: 1px solid var(--border-color-gray);
+	padding: 10px;
+}
+
+.findMe span > svg {
+	font-size: 1.5rem;
+}
+
+.findMe span:first-child {
+	padding: 10px 15px;
+}
+
+.userName {
+	border-left: 1px solid var(--border-color-gray);
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.userName span:last-child {
+	font-size: 1.5rem;
+}
+
+.userName > .link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding-inline: 10px;
+	height: 100%;
+}
+
+.link:hover {
+	background: var(--bg-hovered-gray);
+	color: white;
+}

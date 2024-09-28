@@ -1,5 +1,6 @@
 import { AppRouter } from 'app/providers/router'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { Footer } from 'widgets/Footer'
 import { Navbar } from 'widgets/Navbar'
 import { useTheme } from './providers/ThemeProvider/lib/useTheme'
 import './styles/index.scss'
@@ -11,6 +12,7 @@ export const App = () => {
 		<div className={classNames('app', {}, [theme])}>
 			<Navbar />
 			<AppRouter />
+			<Footer />
 		</div>
 	)
 }
