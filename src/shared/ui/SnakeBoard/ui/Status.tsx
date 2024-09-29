@@ -2,6 +2,7 @@ import { RootState } from 'app/providers/StoreProvider'
 import {
 	changeStatus,
 	checkApple,
+	checkGameOver,
 	moveSnake,
 	setDirection
 } from 'app/store/snakeGameSlice'
@@ -23,6 +24,7 @@ export const Status: FC<StatusProps> = ({ className }) => {
 		dispatch(moveSnake())
 		dispatch(setDirection())
 		dispatch(checkApple())
+		dispatch(checkGameOver())
 	}
 	const startTimer = () => (timer.current = setInterval(() => update(), 100))
 	const stopTimer = () => clearInterval(timer.current)

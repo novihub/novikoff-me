@@ -7,21 +7,21 @@ const gameSlice = createSlice({
 		status: 'start',
 		// Game objects
 		snake: [
-			{ x: 0, y: 0, index: `${0}:${0}` },
-			{ x: 1, y: 0, index: `${1}:${0}` }
+			{ x: 5, y: 5, index: `${5}:${5}` },
+			{ x: 5, y: 6, index: `${5}:${6}` }
 		],
-		snakeHead: { x: 1, y: 0, index: `${1}:${0}` },
+		snakeHead: { x: 5, y: 5, index: `${5}:${5}` },
 		snakeSize: 2,
 		apple: { x: 1, y: 1, index: `${5}:${5}` },
 		// Direction controller
-		savedKey: 'right',
+		savedKey: 'up',
 		stopKeyCombinations: [
 			['up', 'down'],
 			['down', 'up'],
 			['left', 'right'],
 			['right', 'left']
 		],
-		direction: 'right'
+		direction: 'up'
 	},
 	reducers: {
 		// Game status actions
@@ -91,6 +91,12 @@ const gameSlice = createSlice({
 	}
 })
 
-export const { changeStatus, moveSnake, saveKey, setDirection, checkApple } =
-	gameSlice.actions
+export const {
+	changeStatus,
+	moveSnake,
+	saveKey,
+	setDirection,
+	checkApple,
+	checkGameOver
+} = gameSlice.actions
 export const gameReducer = gameSlice.reducer
