@@ -18,13 +18,30 @@ interface HelloConsoleProps {
 
 export const HelloConsole: FC<HelloConsoleProps> = ({ className }) => {
 	const [activeButton, setActiveButton] = useState<number | null>(null)
+	const dispatch = useDispatch()
 
 	const handleClick = (index: number) => {
 		setActiveButton(index)
-
 		setTimeout(() => {
 			setActiveButton(null)
 		}, 200)
+
+		switch (index) {
+			case 0:
+				dispatch(saveKey('up'))
+				break
+			case 1:
+				dispatch(saveKey('down'))
+				break
+			case 2:
+				dispatch(saveKey('left'))
+				break
+			case 3:
+				dispatch(saveKey('right'))
+				break
+			default:
+				break
+		}
 	}
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -47,45 +64,14 @@ export const HelloConsole: FC<HelloConsoleProps> = ({ className }) => {
 	}
 
 	useEffect(() => {
-		// Добавление обработчика события нажатия клавиш
 		document.addEventListener('keydown', handleKeyDown)
 		return () => {
-			// Удаление обработчика при размонтировании компонента
 			document.removeEventListener('keydown', handleKeyDown)
 		}
 	}, [])
 
-	const dispatch = useDispatch()
-
-	const keyDownHandler = (event: React.KeyboardEvent) => {
-		console.log(event.key)
-		switch (event.key) {
-			case 'ArrowUp':
-				event.preventDefault()
-				dispatch(saveKey('up'))
-				break
-			case 'ArrowDown':
-				event.preventDefault()
-				dispatch(saveKey('down'))
-				break
-			case 'ArrowLeft':
-				event.preventDefault()
-				dispatch(saveKey('left'))
-				break
-			case 'ArrowRight':
-				event.preventDefault()
-				dispatch(saveKey('right'))
-				break
-			default:
-				break
-		}
-	}
-
 	return (
-		<section
-			onKeyDownCapture={keyDownHandler}
-			className={classNames(cls.helloConsole, {}, [className])}
-		>
+		<section className={classNames(cls.helloConsole, {}, [className])}>
 			<div className={cls.snakeGame}>
 				<div className={cls.snakeContainer}>
 					<BoltUpLeft className={cls.bolt} />
@@ -107,6 +93,7 @@ export const HelloConsole: FC<HelloConsoleProps> = ({ className }) => {
 								>
 									<Arrow />
 								</button>
+
 								<div>
 									{[2, 1, 3].map(index => (
 										<button
