@@ -1,3 +1,4 @@
+import { AboutPage } from 'pages/AboutPage'
 import { HelloPage } from 'pages/HelloPage'
 import { Navigate } from 'react-router-dom'
 
@@ -11,25 +12,25 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.ANY]: '*',
 	[AppRoutes.HELLO]: '/hello',
-	[AppRoutes.ABOUT_ME]: '/about-me',
+	[AppRoutes.ABOUT_ME]: '/about-me/*',
 	[AppRoutes.PROJECTS]: '/projects'
 }
 
 export const routeConfig = {
 	[AppRoutes.HELLO]: {
-		path: AppRoutes.HELLO,
+		path: RoutePath.hello,
 		element: <HelloPage />
 	},
-	[AppRoutes.ANY]: {
-		path: AppRoutes.ANY,
-		element: <Navigate to={AppRoutes.HELLO} />
-	},
 	[AppRoutes.ABOUT_ME]: {
-		path: AppRoutes.ABOUT_ME,
-		element: <div>ABOUT ME</div>
+		path: RoutePath['about-me'],
+		element: <AboutPage />
 	},
 	[AppRoutes.PROJECTS]: {
-		path: AppRoutes.PROJECTS,
+		path: RoutePath.projects,
 		element: <div>PROJECTS</div>
+	},
+	[AppRoutes.ANY]: {
+		path: RoutePath['*'],
+		element: <Navigate to={AppRoutes.HELLO} />
 	}
 }
