@@ -1,8 +1,10 @@
 import { FC } from 'react'
+import HobbiesIcon from 'shared/assets/images/AboutPage/hobbies-icon.svg'
+import PersonalInfoIcon from 'shared/assets/images/AboutPage/personal-info-icon.svg'
+import ProfessionalInfoIcon from 'shared/assets/images/AboutPage/professional-info-icon.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
 import cls from './AboutNav.module.scss'
-
+import { AboutNavLink } from './AboutNavLink'
 interface AboutNavProps {
 	className?: string
 }
@@ -10,7 +12,15 @@ interface AboutNavProps {
 export const AboutNav: FC<AboutNavProps> = ({ className }) => {
 	return (
 		<nav className={classNames(cls.aboutNav, {}, [className])}>
-			<AppLink to={'/about-me/personal-info'}>fdfsfds</AppLink>
+			<AboutNavLink to={'/about-me/professional-info'}>
+				<ProfessionalInfoIcon />
+			</AboutNavLink>
+			<AboutNavLink to={'/about-me/personal-info'}>
+				<PersonalInfoIcon />
+			</AboutNavLink>
+			<AboutNavLink to={'/about-me/hobbies-info'}>
+				<HobbiesIcon />
+			</AboutNavLink>
 		</nav>
 	)
 }

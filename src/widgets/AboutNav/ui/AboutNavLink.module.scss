@@ -1,0 +1,10 @@
+.aboutNavLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-block: 15px;
+}
+
+.active > svg > g {
+	opacity: 1;
+}
