@@ -8,7 +8,7 @@
 		"build:prod": "webpack --env mode=production",
 		"build:dev": "webpack --env mode=development",
 		"predeploy": "npm run build:prod",
-		"deploy": "npm run build && echo 'novicode.me' > dist/CNAME && gh-pages -d dist"
+		"deploy": "npm run build:prod && echo 'novicode.me' > dist/CNAME && gh-pages -d dist"
 	},
 	"keywords": [],
 	"author": "",
