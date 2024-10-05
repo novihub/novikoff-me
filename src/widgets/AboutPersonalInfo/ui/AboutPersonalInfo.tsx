@@ -16,11 +16,7 @@ export const AboutPersonalInfo: FC<AboutPersonalInfoProps> = ({
 		<div className={classNames(cls.aboutPersonalInfo, {}, [className])}>
 			<div>
 				<PersonalInfoNav setPage={setPage} />
-				<div className={classNames(cls.contacts)}>
-					<div>{' < '}Contacts</div>
-					<p>novikoff04@gmail.com</p>
-					<p>+77071337228</p>
-				</div>
+
 			</div>
 			<div>
 				<div>Personal Info X</div>

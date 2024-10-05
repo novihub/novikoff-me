@@ -5,6 +5,7 @@
 	margin-block: 15px;
 }
 
+.aboutNavLink:hover > svg > g,
 .active > svg > g {
 	opacity: 1;
 }

@@ -1,10 +1,44 @@
 .personalInfoNav {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	border-right: 1px solid var(--border-color-gray);
+	height: 100%;
 }
 
 .personalInfoNav a {
 	padding: 5px;
+}
+
+.personalInfoHeader,
+.contactsHeader {
+	color: white;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.personalInfoHeader {
+	border-bottom: 1px solid var(--border-color-gray);
+}
+
+.contactsHeader {
+	border-block: 1px solid var(--border-color-gray);
+}
+
+.personalInfoNav button {
+	border: none;
+	outline: none;
+	background-color: inherit;
+	color: var(--text-color-gray);
+	text-align: left;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.email,
+.number {
+	color: var(--text-color-gray);
+	padding-inline: 10px;
+	padding-bottom: 10px;
 }
