@@ -11,7 +11,7 @@ export const AboutProfessionalInfo: FC<AboutProfessionalInfoProps> = ({
 }) => {
 	return (
 		<div className={classNames(cls.aboutProfessionalInfo, {}, [className])}>
-			fdflkjdsfklsdfjdsfsdfklsdj
+			Professional info
 		</div>
 	)
 }

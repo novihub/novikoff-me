@@ -29,8 +29,8 @@ export const routeConfig = {
 		path: RoutePath.projects,
 		element: <div>PROJECTS</div>
 	},
-	[AppRoutes.ANY]: {
-		path: RoutePath['*'],
-		element: <Navigate to={AppRoutes.HELLO} />
-	}
+	// [AppRoutes.ANY]: {
+	// 	path: RoutePath['*'],
+	// 	element: <Navigate to={AppRoutes.HELLO} />
+	// }
 }
