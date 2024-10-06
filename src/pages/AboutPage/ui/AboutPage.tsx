@@ -16,12 +16,9 @@ export const AboutPage: FC<AboutPageProps> = ({ className }) => {
 		<section className={classNames(cls.aboutPage, {}, [className])}>
 			<AboutNav />
 			<Routes>
-				<Route
-					path={'professional-info/*'}
-					element={<AboutProfessionalInfo />}
-				/>
-				<Route path={'personal-info/*'} element={<AboutPersonalInfo />} />
-				<Route path={'hobbies-info/*'} element={<AboutHobbiesInfo />} />
+				<Route path={'professional-info'} element={<AboutProfessionalInfo />} />
+				<Route path={'personal-info'} element={<AboutPersonalInfo />} />
+				<Route path={'hobbies-info'} element={<AboutHobbiesInfo />} />
 			</Routes>
 		</section>
 	)

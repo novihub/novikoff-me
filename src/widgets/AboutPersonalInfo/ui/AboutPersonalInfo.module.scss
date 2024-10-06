@@ -13,3 +13,31 @@
 .contacts p {
 	padding: 5px;
 }
+
+.header {
+	padding: 10px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.personalMain {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
+
+.header {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
+
+.main {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
