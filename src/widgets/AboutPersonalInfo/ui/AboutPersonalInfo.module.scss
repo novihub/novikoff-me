@@ -15,7 +15,21 @@
 }
 
 .header {
+	border-bottom: 1px solid var(--border-color-gray);
+}
+
+.tab span {
+	color: var(--text-color-gray);
 	padding: 10px;
+}
+
+.tab {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 180px;
+	border-right: 1px solid var(--border-color-gray);
 }
 
 .wrapper {
@@ -40,4 +54,5 @@
 	display: grid;
 	width: 100%;
 	grid-template-columns: 1fr 1fr;
+	flex-grow: 1;
 }

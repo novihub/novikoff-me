@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { PersonalInfoNav } from 'widgets/PersonalInfoNav'
 import cls from './AboutPersonalInfo.module.scss'
 import { BioPage } from './BioPage'
+import { CodeSnippets } from './CodeSnippets'
 
 interface AboutPersonalInfoProps {
 	className?: string
@@ -18,8 +19,13 @@ export const AboutPersonalInfo: FC<AboutPersonalInfoProps> = ({
 			<PersonalInfoNav setPage={setPage} />
 			<div className={classNames(cls.wrapper)}>
 				<div className={classNames(cls.header)}>
-					<p>Personal Info</p>
-					<p></p>
+					<div className={classNames(cls.tab)}>
+						<span>personal-info</span>
+						<span>x</span>
+					</div>
+					<div>
+						<p></p>
+					</div>
 				</div>
 				<div className={classNames(cls.main)}>
 					<Suspense fallback={'...loading'}>
@@ -27,7 +33,9 @@ export const AboutPersonalInfo: FC<AboutPersonalInfoProps> = ({
 						{page === 'interests' && <div>interests</div>}
 						{page === 'education' && <div>education</div>}
 					</Suspense>
-					<div className={classNames(cls.codeSnippets)}> code snippets</div>
+					<div className={classNames(cls.codeSnippetsContainer)}>
+						<CodeSnippets />
+					</div>
 				</div>
 			</div>
 		</div>
