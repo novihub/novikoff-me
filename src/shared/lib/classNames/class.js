@@ -5,5 +5,4 @@ const obj = {
 	isFlse: false
 }
 
-
 log(...Object.entries(obj).join(' '))
