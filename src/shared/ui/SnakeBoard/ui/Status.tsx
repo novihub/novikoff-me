@@ -4,9 +4,10 @@ import {
 	checkApple,
 	checkGameOver,
 	moveSnake,
+	resetGame,
 	setDirection
 } from 'app/store/snakeGameSlice'
-import { FC, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Status.module.scss'
@@ -26,15 +27,25 @@ export const Status: FC<StatusProps> = ({ className }) => {
 		dispatch(checkApple())
 		dispatch(checkGameOver())
 	}
-	const startTimer = () => (timer.current = setInterval(() => update(), 100))
+	const startTimer = () => (timer.current = setInterval(() => update(), 50))
 	const stopTimer = () => clearInterval(timer.current)
 
 	const snakeBtnHandler = () => {
-		status === 'start' ? startTimer() : stopTimer()
+		if (status === 'game-over') {
+			dispatch(resetGame())
+		}
+		status === 'start' || status === 'game-over' ? startTimer() : stopTimer()
+
 		dispatch(changeStatus())
 		dispatch(setDirection())
 		dispatch(checkApple())
 	}
+
+	useEffect(() => {
+		if (status === 'game-over') {
+			stopTimer()
+		}
+	}, [status])
 
 	return (
 		<div className={cls.status}>

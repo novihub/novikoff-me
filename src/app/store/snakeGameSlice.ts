@@ -1,32 +1,40 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = {
+	// Game status
+	status: 'start',
+	// Game objects
+	snake: [
+		{ x: 5, y: 5, index: `${5}:${5}` },
+		{ x: 5, y: 6, index: `${5}:${6}` }
+	],
+	snakeHead: { x: 5, y: 5, index: `${5}:${5}` },
+	snakeSize: 2,
+	apple: { x: 1, y: 1, index: `${5}:${5}` },
+	// Direction controller
+	savedKey: 'up',
+	stopKeyCombinations: [
+		['up', 'down'],
+		['down', 'up'],
+		['left', 'right'],
+		['right', 'left']
+	],
+	direction: 'up'
+}
+
 const gameSlice = createSlice({
 	name: 'snakeGame',
-	initialState: {
-		// Game status
-		status: 'start',
-		// Game objects
-		snake: [
-			{ x: 5, y: 5, index: `${5}:${5}` },
-			{ x: 5, y: 6, index: `${5}:${6}` }
-		],
-		snakeHead: { x: 5, y: 5, index: `${5}:${5}` },
-		snakeSize: 2,
-		apple: { x: 1, y: 1, index: `${5}:${5}` },
-		// Direction controller
-		savedKey: 'up',
-		stopKeyCombinations: [
-			['up', 'down'],
-			['down', 'up'],
-			['left', 'right'],
-			['right', 'left']
-		],
-		direction: 'up'
-	},
+	initialState,
 	reducers: {
 		// Game status actions
 		changeStatus(state) {
-			state.status = state.status === 'start' ? 'stop' : 'start'
+			if (state.status === 'game-over' || state.status === 'stop') {
+				// Если статус был 'game-over' или 'stop', то начинаем игру заново
+				state.status = 'start'
+			} else {
+				// Если игра в процессе, то приостанавливаем её
+				state.status = 'stop'
+			}
 		},
 		// Game object actions
 		moveSnake(state) {
@@ -74,7 +82,7 @@ const gameSlice = createSlice({
 			let bitePlace = null
 			bitePlace = snakeHeadless.find(s => s.x === x && s.y === y)
 			if (bitePlace) {
-				state.status = 'stop'
+				state.status = 'game-over'
 			}
 		},
 		// Direction controller actions
@@ -87,6 +95,9 @@ const gameSlice = createSlice({
 		},
 		setDirection(state) {
 			state.direction = state.savedKey
+		},
+		resetGame(state) {
+			return initialState
 		}
 	}
 })
@@ -97,6 +108,7 @@ export const {
 	saveKey,
 	setDirection,
 	checkApple,
-	checkGameOver
+	checkGameOver,
+	resetGame
 } = gameSlice.actions
 export const gameReducer = gameSlice.reducer
