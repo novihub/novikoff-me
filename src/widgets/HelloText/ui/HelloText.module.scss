@@ -34,3 +34,28 @@
 	color: var(--text-color-gray);
 	padding-bottom: 10px;
 }
+
+.helloText {
+	.typing {
+		display: inline-block;
+		position: relative;
+
+		&::after {
+			content: '_';
+			display: inline-block;
+			height: 100%;
+			margin-left: 5px;
+			animation: none;
+		}
+	}
+
+	.cursorBlink::after {
+		animation: blink 0.75s step-end infinite;
+	}
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+}
