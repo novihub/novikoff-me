@@ -124,3 +124,9 @@
 .snakeKeys button:hover {
 	box-shadow: 0 0 10px #43d9ad;
 }
+
+@media (max-width: 1024px) {
+	.helloConsole {
+		display: none;
+	}
+}

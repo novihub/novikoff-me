@@ -6,7 +6,7 @@ export function useTypeText(text: string, speed: number) {
 	let index = 0
 
 	const typeText = () => {
-		if (typedTextRef) {
+		if (typedTextRef.current) {
 			typedTextRef.current.innerHTML += text.charAt(index)
 			index++
 
@@ -23,5 +23,5 @@ export function useTypeText(text: string, speed: number) {
 		typeText()
 	}, [])
 
-	return	{ typedTextRef, isTypingComplete }
+	return { typedTextRef, isTypingComplete }
 }

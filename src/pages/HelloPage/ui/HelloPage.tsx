@@ -1,6 +1,5 @@
 import { FC } from 'react'
 
-import BackgroundBlur from 'shared/assets/images/HelloPage/hello-blur.png'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { HelloConsole } from 'widgets/HelloConsole'
 import { HelloText } from 'widgets/HelloText'
@@ -15,9 +14,9 @@ const HelloPage: FC<HelloPageProps> = ({ className }) => {
 		<div className={classNames(cls.helloPage, {}, [className])}>
 			<HelloText />
 			<HelloConsole />
-			<div className={cls.backgroundBlur}>
+			{/* <div className={cls.backgroundBlur}>
 				<img src={BackgroundBlur} alt='' />
-			</div>
+			</div> */}
 		</div>
 	)
 }

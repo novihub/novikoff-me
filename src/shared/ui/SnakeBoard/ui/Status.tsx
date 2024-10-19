@@ -27,7 +27,7 @@ export const Status: FC<StatusProps> = ({ className }) => {
 		dispatch(checkApple())
 		dispatch(checkGameOver())
 	}
-	const startTimer = () => (timer.current = setInterval(() => update(), 50))
+	const startTimer = () => (timer.current = setInterval(() => update(), 75))
 	const stopTimer = () => clearInterval(timer.current)
 
 	const snakeBtnHandler = () => {
@@ -49,12 +49,14 @@ export const Status: FC<StatusProps> = ({ className }) => {
 
 	return (
 		<div className={cls.status}>
-			<button
-				className={classNames(cls.snakeStart, {}, [className])}
-				onClick={snakeBtnHandler}
-			>
-				{status}
-			</button>
+			{status !== 'stop' && (
+				<button
+					className={classNames(cls.snakeStart, {}, [className])}
+					onClick={snakeBtnHandler}
+				>
+					{status}
+				</button>
+			)}
 		</div>
 	)
 }
