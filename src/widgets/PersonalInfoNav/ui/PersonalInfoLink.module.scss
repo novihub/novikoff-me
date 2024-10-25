@@ -5,6 +5,10 @@
 	padding: 5px 10px;
 	cursor: pointer;
 
+	.diple {
+		transition: transform 0.5s ease;
+	}
+
 	span {
 		color: var(--text-color-gray);
 	}
@@ -16,10 +20,12 @@
 	}
 }
 
-.diple {
-	transition: transform 0.5s ease;
-}
+.personalInfoLink.active {
+	.diple {
+		transform: rotate(90deg);
+	}
 
-.diple.active {
-	transform: rotate(90deg);
+	span {
+		color: white;
+	}
 }

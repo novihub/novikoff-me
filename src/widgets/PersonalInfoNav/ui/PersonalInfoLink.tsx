@@ -28,11 +28,11 @@ export const PersonalInfoLink: FC<PersonalInfoLinkProps> = ({
 				setPage(text)
 				isActiveHandler(id)
 			}}
-			className={classNames(cls.personalInfoLink, {}, [className])}
+			className={classNames(cls.personalInfoLink, { [cls.active]: isActive }, [
+				className
+			])}
 		>
-			<Diple
-				className={classNames(cls.diple, { [cls.active]: isActive }, [])}
-			/>
+			<Diple className={classNames(cls.diple, {}, [])} />
 			<Folder />
 			<span>{text}</span>
 		</div>
