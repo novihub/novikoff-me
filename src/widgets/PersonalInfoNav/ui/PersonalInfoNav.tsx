@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Diple from 'shared/assets/images/diple.svg'
 import PinkFolder from 'shared/assets/images/folder1.svg'
 import GreenFolder from 'shared/assets/images/folder2.svg'
@@ -19,6 +19,18 @@ export const PersonalInfoNav: FC<PersonalInfoNavProps> = ({
 }) => {
 	const { isOpen, toggleDropdown } = useDropdown()
 
+	const personalInfoLinks = [
+		{ id: 'bio', text: 'bio', Folder: PinkFolder },
+		{ id: 'interests', text: 'interests', Folder: GreenFolder },
+		{ id: 'education', text: 'education', Folder: BlueFolder }
+	]
+
+	const [isActive, setIsActive] = useState<string | null>(null)
+
+	const isActiveHandler = (id: string) => {
+		setIsActive(id)
+	}
+
 	return (
 		<div className={classNames(cls.personalInfoNav, {}, [className])}>
 			{/* Personal Info Section */}
@@ -34,17 +46,17 @@ export const PersonalInfoNav: FC<PersonalInfoNavProps> = ({
 			<div
 				className={classNames(cls.links, { [cls.rotated]: isOpen('links') })}
 			>
-				<PersonalInfoLink Folder={PinkFolder} setPage={setPage} text={'bio'} />
-				<PersonalInfoLink
-					Folder={GreenFolder}
-					setPage={setPage}
-					text={'interests'}
-				/>
-				<PersonalInfoLink
-					Folder={BlueFolder}
-					setPage={setPage}
-					text={'education'}
-				/>
+				{personalInfoLinks.map(link => (
+					<PersonalInfoLink
+						key={link.id}
+						Folder={link.Folder}
+						setPage={setPage}
+						text={link.text}
+						isActive={isActive === link.id}
+						isActiveHandler={isActiveHandler}
+						id={link.id}
+					/>
+				))}
 			</div>
 
 			{/* Contacts Section */}

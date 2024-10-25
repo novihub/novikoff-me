@@ -8,20 +8,31 @@ interface PersonalInfoLinkProps {
 	Folder: any
 	text: string
 	setPage: (page: string) => void
+	isActive: boolean
+	isActiveHandler: any
+	id: string
 }
 
 export const PersonalInfoLink: FC<PersonalInfoLinkProps> = ({
 	className,
 	Folder,
 	text,
-	setPage
+	isActive,
+	isActiveHandler,
+	setPage,
+	id
 }) => {
 	return (
 		<div
-			onClick={() => setPage(text)}
+			onClick={() => {
+				setPage(text)
+				isActiveHandler(id)
+			}}
 			className={classNames(cls.personalInfoLink, {}, [className])}
 		>
-			<Diple />
+			<Diple
+				className={classNames(cls.diple, { [cls.active]: isActive }, [])}
+			/>
 			<Folder />
 			<span>{text}</span>
 		</div>

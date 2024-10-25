@@ -1,9 +1,9 @@
 import { FC, Suspense, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { PersonalInfoNav } from 'widgets/PersonalInfoNav'
-import cls from './AboutPersonalInfo.module.scss'
 import { BioPage } from '../../../features/Bio/ui/Bio'
 import { CodeSnippets } from '../../../shared/ui/CodeSnippets/CodeSnippets'
+import cls from './AboutPersonalInfo.module.scss'
 
 interface AboutPersonalInfoProps {
 	className?: string
