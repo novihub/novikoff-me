@@ -11,19 +11,24 @@
 
 .personalInfoHeader,
 .contactsHeader {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 	color: white;
 	font-size: 14px;
 	padding: 10px;
 	width: 100%;
 	margin-bottom: 15px;
+	font: var(--font-m);
 }
 
 .personalInfoHeader {
-	border-bottom: 1px solid var(--border-color-gray);
+	border-bottom: 1px solid var(--border-color-gray) !important;
+	margin: 0;
 }
 
 .contactsHeader {
-	border-block: 1px solid var(--border-color-gray);
+	border-block: 1px solid var(--border-color-gray) !important;
 }
 
 .personalInfoNav button {
@@ -41,4 +46,33 @@
 	color: var(--text-color-gray);
 	padding-inline: 10px;
 	padding-bottom: 10px;
+}
+
+.diple {
+	transition: transform 0.5s ease;
+}
+
+.diple.rotated {
+	transform: rotate(90deg);
+}
+
+.links,
+.contacts {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transform: translateY(-5px);
+	transition: max-height 1s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.links.rotated {
+	max-height: 150px;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.contacts.rotated {
+	max-height: 100px;
+	opacity: 1;
+	transform: translateY(0);
 }
