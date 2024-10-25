@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Bio.module.scss'
 
@@ -7,38 +7,54 @@ interface BioPageProps {
 }
 
 export const BioPage: FC<BioPageProps> = ({ className }) => {
-	const textRef = useRef<HTMLDivElement>(null) // Реф для блока с текстом
-	const [visibleLines, setVisibleLines] = useState(0)
+	const [lines, setLines] = useState(0)
+	const textContainerRef = useRef<HTMLDivElement | null>(null)
 
-	const textLines = [
-		'/*',
-		'* About me',
-		'* I have 5 years of experience in web development',
-		'* Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		'* Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-		'* Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
-		'* Nisi ut aliquip ex ea commodo consequat.',
-		'* Duis aute irure dolor in reprehenderit in voluptate velit esse',
-		'* Cillum dolore eu fugiat nulla pariatur.',
-		'* Excepteur sint occaecat officia deserunt mollit anim id est laborum.',
-		'*/'
-	]
+	const text =
+		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea autem quisquam quam qui dolor quis blanditiis ducimus rem, eius in molestias eos tempora voluptatibus, ipsa sint ipsam rerum sapiente sequi. Ad distinctio odio id harum vero optio dolores. Rem voluptatibus distinctio saepe magnam veritatis dicta enim rerum laborum inventore libero, dolorum ipsum? Necessitatibus quas odio id, error distinctio quam a. Quas impedit repellendus assumenda doloremque doloribus quod dolore dolor quibusdam ad? Quasi praesentium veritatis officiis cupiditate aut consectetur, sequi ad vero atque ipsa, animi sint delectus illum ducimus tenetur! Quod odit optio sint tempore ratione illo temporibus sapiente doloremque nulla?'
+
+	const updateLines = () => {
+		if (textContainerRef.current) {
+			const style = window.getComputedStyle(textContainerRef.current)
+			const lineHeight = parseFloat(style.lineHeight)
+			const textHeight = textContainerRef.current.scrollHeight
+			const newLines = Math.floor(textHeight / lineHeight)
+			setLines(newLines)
+		}
+	}
+
+	useEffect(() => {
+		updateLines()
+		window.addEventListener('resize', updateLines)
+		return () => {
+			window.removeEventListener('resize', updateLines)
+		}
+	}, [text])
 
 	return (
 		<div className={classNames(cls.bioPage, {}, [className])}>
 			<div className={classNames(cls.main)}>
-				<div className={classNames(cls.text)} ref={textRef}>
-					<div>
-						{textLines.map((_, index) => (
-							<p style={{ textAlign: 'end', paddingInline: '10px 20px' }}>
-								{index + 1}
-							</p>
-						))}
+				<div className={cls.codeContainer}>
+					<div className={cls.lineNumbers}>
+						{Array.from({ length: lines }, (_, index) => {
+							const n = index + 1
+							return (
+								<div key={n} className={cls.lineNumber}>
+									<span>{n}</span>
+									<div
+										className={
+											n === 1 ? cls.first : n < lines ? cls.between : cls.last
+										}
+									>
+										{n === 1 ? '/*' : n < lines ? '*' : '*/'}
+									</div>
+								</div>
+							)
+						})}
 					</div>
-					<div>
-						{textLines.map(line => (
-							<p>{line}</p>
-						))}
+
+					<div className={cls.textContainer} ref={textContainerRef}>
+						<p style={{ fontSize: '1rem', lineHeight: '1.5' }}>{text}</p>
 					</div>
 				</div>
 			</div>
