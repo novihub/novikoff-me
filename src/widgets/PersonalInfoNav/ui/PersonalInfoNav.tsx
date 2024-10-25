@@ -25,7 +25,7 @@ export const PersonalInfoNav: FC<PersonalInfoNavProps> = ({
 		{ id: 'education', text: 'education', Folder: BlueFolder }
 	]
 
-	const [isActive, setIsActive] = useState<string | null>(null)
+	const [isActive, setIsActive] = useState<string | null>('bio')
 
 	const isActiveHandler = (id: string) => {
 		setIsActive(id)
