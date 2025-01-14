@@ -8,14 +8,6 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
 		preferAbsolute: true,
 		modules: [options.paths.src, 'node_modules'],
 		mainFiles: ['index'],
-		alias: {
-			'@': ['./'],
-			app: ['app/*'],
-			entities: ['entities/*'],
-			features: ['features/*'],
-			pages: ['pages/*'],
-			shared: ['shared/*'],
-			widget: ['widget/*']
-		}
+		alias: {}
 	}
 }

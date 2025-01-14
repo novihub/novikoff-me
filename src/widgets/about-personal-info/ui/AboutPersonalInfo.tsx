@@ -1,9 +1,9 @@
-import { PersonalInfoNav } from '@/widgets/personal-info-nav'
 import { BioPage } from 'features/bio'
 import { FC, Suspense, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { CodeSnippets } from 'shared/ui/CodeSnippets/CodeSnippets'
 import cls from './AboutPersonalInfo.module.scss'
+import { PersonalInfoNav } from 'widgets/personal-info-nav'
 
 interface AboutPersonalInfoProps {
 	className?: string

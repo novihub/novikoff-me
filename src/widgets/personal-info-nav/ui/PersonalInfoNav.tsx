@@ -3,10 +3,10 @@ import Diple from 'shared/assets/images/diple.svg'
 import PinkFolder from 'shared/assets/images/folder1.svg'
 import GreenFolder from 'shared/assets/images/folder2.svg'
 import BlueFolder from 'shared/assets/images/folder3.svg'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useDropdown } from 'shared/lib/useDropdown/useDropdown'
 import { PersonalInfoLink } from './PersonalInfoLink'
 import cls from './PersonalInfoNav.module.scss'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { useDropdown } from 'shared/lib/useDropdown/useDropdown'
 
 interface PersonalInfoNavProps {
 	className?: string

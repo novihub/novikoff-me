@@ -1,4 +1,4 @@
-import { RootState } from '@/app/store/store'
+import { RootState } from 'app/store/store'
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'

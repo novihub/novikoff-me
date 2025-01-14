@@ -1,4 +1,3 @@
-import { RootState } from '@/app/store/store'
 import {
 	changeStatus,
 	checkApple,
@@ -7,6 +6,7 @@ import {
 	resetGame,
 	setDirection
 } from 'app/store/snakeGameSlice'
+import { RootState } from 'app/store/store'
 import { FC, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
