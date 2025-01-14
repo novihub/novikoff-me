@@ -26,7 +26,7 @@ export const CodeSnippets: FC<CodeSnippetsProps> = ({ className }) => {
 					</div>
 				</div>
 				<div className={classNames(cls.codeSnippetContainer)}>
-					<div className={classNames(cls.code)}>
+					<code className={classNames(cls.code)}>
 						<p style={{ textWrap: 'nowrap' }}>
 							<span style={{ color: '#E99287' }}>function</span>
 							{` initializeModelChunk<`}
@@ -67,7 +67,7 @@ export const CodeSnippets: FC<CodeSnippetsProps> = ({ className }) => {
 							</p>
 						</div>
 						<p>{'}'}</p>
-					</div>
+					</code>
 				</div>
 			</div>
 		</div>
