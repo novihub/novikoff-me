@@ -1,8 +1,8 @@
+import { PersonalInfoNav } from '@/widgets/personal-info-nav'
 import { BioPage } from 'features/bio'
 import { FC, Suspense, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { CodeSnippets } from 'shared/ui/CodeSnippets/CodeSnippets'
-import { PersonalInfoNav } from 'widgets/PersonalInfoNav'
 import cls from './AboutPersonalInfo.module.scss'
 
 interface AboutPersonalInfoProps {
@@ -10,7 +10,7 @@ interface AboutPersonalInfoProps {
 }
 
 export const AboutPersonalInfo: FC<AboutPersonalInfoProps> = ({
-	className
+	className = ''
 }) => {
 	const [page, setPage] = useState('bio')
 

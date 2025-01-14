@@ -7,7 +7,7 @@ interface FooterProps {
 	className?: string
 }
 
-export const Footer: FC<FooterProps> = ({ className }) => {
+export const Footer: FC<FooterProps> = ({ className = '' }) => {
 	return (
 		<footer className={classNames(cls.footer, {}, [className])}>
 			<div className={cls.findMe}>
@@ -17,7 +17,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 						<FaGithub />
 					</span>
 				</a>
-				<a href='https://t.me/novikoff0' target='_blank' className={cls.link}>
+				<a href='https://t.me/novihype' target='_blank' className={cls.link}>
 					<span>
 						<FaTelegram />
 					</span>

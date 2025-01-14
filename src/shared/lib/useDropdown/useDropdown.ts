@@ -2,8 +2,8 @@ import { useState } from 'react'
 
 export function useDropdown() {
 	const [dropdowns, setDropdowns] = useState<{ [key: string]: boolean }>({
-		links: true,
-		contacts: false
+		links: false,
+		contacts: true
 	})
 
 	const toggleDropdown = (id: string) => {

@@ -16,7 +16,7 @@ interface HelloConsoleProps {
 	className?: string
 }
 
-export const HelloConsole: FC<HelloConsoleProps> = ({ className }) => {
+export const HelloConsole: FC<HelloConsoleProps> = ({ className = '' }) => {
 	const [activeButton, setActiveButton] = useState<number | null>(null)
 	const dispatch = useDispatch()
 

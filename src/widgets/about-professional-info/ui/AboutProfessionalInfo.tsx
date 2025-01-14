@@ -7,7 +7,7 @@ interface AboutProfessionalInfoProps {
 }
 
 export const AboutProfessionalInfo: FC<AboutProfessionalInfoProps> = ({
-	className
+	className = ''
 }) => {
 	return (
 		<div className={classNames(cls.aboutProfessionalInfo, {}, [className])}>

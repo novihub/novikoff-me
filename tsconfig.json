@@ -1,26 +1,88 @@
 {
 	"compilerOptions": {
-		// default
-		"outDir": "./dist/", // Build dist ( it isn't required, because we build project by using webpack)
-		"noImplicitAny": true, // type any is not allowed
-		"module": "ES2022", //
-		"target": "ES5", // For supporting most browsers
-		"jsx": "react-jsx", // like return <div></div>
+		// Specifies the target ECMAScript version for the output files.
+		"target": "esnext",
+
+		// Specifies the library files included during the compilation.
+		"lib": ["dom", "dom.iterable", "esnext"],
+
+		// Allows JavaScript files to be compiled along with TypeScript files.
 		"allowJs": true,
-		"moduleResolution": "node",
-		// more familiar imports
+
+		// Skips type checking of declaration files (*.d.ts).
+		"skipLibCheck": true,
+
+		// Enables compatibility with ECMAScript modules and Node.js-style imports.
 		"esModuleInterop": true,
+
+		// Allows default imports from modules that don't have a default export.
 		"allowSyntheticDefaultImports": true,
-		// others
+
+		// Enables strict type-checking options, improving code quality and type safety.
+		"strict": true,
+
+		// Ensures that the file names are case-consistent across the project.
+		"forceConsistentCasingInFileNames": true,
+
+		// Prevents fall-through behavior in switch statements.
+		"noFallthroughCasesInSwitch": true,
+
+		// Specifies the module system to use when compiling (ES Modules).
+		"module": "esnext",
+
+		// Determines how modules are resolved (node-style resolution).
+		"moduleResolution": "node",
+
+		// Allows importing JSON files as modules.
+		"resolveJsonModule": true,
+
+		// Ensures that all files are treated as modules, which improves isolation between modules.
+		"isolatedModules": true,
+
+		// Disables emitting output files (useful for type-checking only).
+		"noEmit": true,
+
+		// Specifies the JSX transformation to use (React 17+ JSX Transform).
+		"jsx": "react-jsx",
+
+		// Sets the base directory for resolving non-relative module names.
 		"baseUrl": ".",
+
+		// Maps paths for modules to specific directories, simplifying imports.
 		"paths": {
-			"*": ["./src/*"]
-		}
-	},
-	"ts-node": {
-		"compilerOptions": {
-			"module": "CommonJS"
-		}
+			"@/*": ["./src/*"],
+			"app/*": ["src/app/*"],
+			"entities/*": ["src/entities/*"],
+			"features/*": ["src/features/*"],
+			"pages/*": ["src/pages/*"],
+			"shared/*": ["src/shared/*"],
+			"widget/*": ["src/widget/*"]
+		},
+
+		// Uses the ECMAScript standard for class fields (improves consistency with JS).
+		"useDefineForClassFields": true,
+
+		// Warns about unused local variables in the code.
+		"noUnusedLocals": true,
+
+		// Warns about unused parameters in functions or methods.
+		"noUnusedParameters": true,
+
+		// Strictly checks the types of function arguments and return values.
+		"strictFunctionTypes": true,
+
+		// Ensures that optional properties are treated as undefined if not explicitly set.
+		"exactOptionalPropertyTypes": true,
+
+		// Enforces strict checks for `bind`, `call`, and `apply` methods.
+		"strictBindCallApply": true,
+
+		// Prevents the use of `any` type, encouraging more precise types.
+		"noImplicitAny": true
 	},
 
+	// Specifies the files or directories to include in the project (all files inside the "src" directory).
+	"include": ["src/**/*"],
+
+	"exclude": ["node_modules", "build"]
 }

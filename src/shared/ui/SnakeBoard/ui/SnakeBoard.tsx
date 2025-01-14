@@ -7,7 +7,7 @@ interface SnakeBoardProps {
 	className?: string
 }
 
-export const SnakeBoard: FC<SnakeBoardProps> = ({ className }) => {
+export const SnakeBoard: FC<SnakeBoardProps> = ({ className = '' }) => {
 	let cells = []
 
 	for (let y = 0; y < 26; y++) {

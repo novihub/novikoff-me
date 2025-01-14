@@ -6,7 +6,7 @@ interface CodeSnippetsProps {
 	className?: string
 }
 
-export const CodeSnippets: FC<CodeSnippetsProps> = ({ className }) => {
+export const CodeSnippets: FC<CodeSnippetsProps> = ({ className = '' }) => {
 	return (
 		<div className={classNames(cls.codeSnippets, {}, [className])}>
 			<p>// Code snippet showcase:</p>

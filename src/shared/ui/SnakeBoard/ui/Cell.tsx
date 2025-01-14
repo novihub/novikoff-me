@@ -1,4 +1,4 @@
-import { RootState } from 'app/providers/StoreProvider'
+import { RootState } from '@/app/store/store'
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -14,8 +14,8 @@ interface CellProps {
 }
 
 export const Cell: FC<CellProps> = ({ cell }) => {
-	const snake = useSelector((store: RootState) => store.gameReducer.snake)
-	const apple = useSelector((store: RootState) => store.gameReducer.apple)
+	const snake = useSelector((store: RootState) => store.snakeGame.snake)
+	const apple = useSelector((store: RootState) => store.snakeGame.apple)
 
 	let cellStyle = ''
 

@@ -1,4 +1,4 @@
-import { RootState } from 'app/providers/StoreProvider'
+import { RootState } from '@/app/store/store'
 import {
 	changeStatus,
 	checkApple,
@@ -16,11 +16,11 @@ interface StatusProps {
 	className?: string
 }
 
-export const Status: FC<StatusProps> = ({ className }) => {
-	const status = useSelector((store: RootState) => store.gameReducer.status)
+export const Status: FC<StatusProps> = ({ className = '' }) => {
+	const status = useSelector((store: RootState) => store.snakeGame.status)
 	const dispatch = useDispatch()
 
-	let timer = useRef(null)
+	let timer = useRef<NodeJS.Timeout | null>(null)
 	const update = () => {
 		dispatch(moveSnake())
 		dispatch(setDirection())
@@ -28,7 +28,9 @@ export const Status: FC<StatusProps> = ({ className }) => {
 		dispatch(checkGameOver())
 	}
 	const startTimer = () => (timer.current = setInterval(() => update(), 75))
-	const stopTimer = () => clearInterval(timer.current)
+	const stopTimer = () => {
+		timer.current !== null && clearInterval(timer.current)
+	}
 
 	const snakeBtnHandler = () => {
 		if (status === 'game-over') {

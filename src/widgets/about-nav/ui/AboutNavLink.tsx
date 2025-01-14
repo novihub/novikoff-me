@@ -11,9 +11,8 @@ interface AboutNavLinkProps {
 
 export const AboutNavLink: FC<AboutNavLinkProps> = ({
 	children,
-	className,
-	to,
-	...otherProps
+	className = '',
+	to
 }) => {
 	const location = useLocation()
 	const isActive = location.pathname === to

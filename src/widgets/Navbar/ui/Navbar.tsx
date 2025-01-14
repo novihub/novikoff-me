@@ -8,7 +8,7 @@ interface NavbarProps {
 	className?: string
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar: FC<NavbarProps> = ({ className = '' }) => {
 	return (
 		<div className={classNames(cls.navbar, {}, [className])}>
 			<Link to='/hello'>

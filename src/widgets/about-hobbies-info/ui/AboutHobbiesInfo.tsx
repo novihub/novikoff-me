@@ -6,7 +6,9 @@ interface AboutHobbiesInfoProps {
 	className?: string
 }
 
-export const AboutHobbiesInfo: FC<AboutHobbiesInfoProps> = ({ className }) => {
+export const AboutHobbiesInfo: FC<AboutHobbiesInfoProps> = ({
+	className = ''
+}) => {
 	return (
 		<div className={classNames(cls.AboutHobbiesInfo, {}, [className])}>
 			Hobbies Info

@@ -15,8 +15,6 @@ export function useTheme(): UseThemeResult {
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
 	}
 
-	setTheme(Theme.DARK) // HARD CODED !!!
-
 	return {
 		toggleTheme,
 		theme

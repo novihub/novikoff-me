@@ -1,15 +1,15 @@
 import { FC } from 'react'
 
+import { HelloConsole } from '@/widgets/hello-console'
+import { HelloText } from '@/widgets/hello-text'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { HelloConsole } from 'widgets/HelloConsole'
-import { HelloText } from 'widgets/HelloText'
 import cls from './HelloPage.module.scss'
 
 interface HelloPageProps {
 	className?: string
 }
 
-const HelloPage: FC<HelloPageProps> = ({ className }) => {
+const HelloPage: FC<HelloPageProps> = ({ className = '' }) => {
 	return (
 		<div className={classNames(cls.helloPage, {}, [className])}>
 			<HelloText />

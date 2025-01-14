@@ -13,15 +13,17 @@ interface PersonalInfoLinkProps {
 	id: string
 }
 
-export const PersonalInfoLink: FC<PersonalInfoLinkProps> = ({
-	className,
-	Folder,
-	text,
-	isActive,
-	isActiveHandler,
-	setPage,
-	id
-}) => {
+export const PersonalInfoLink: FC<PersonalInfoLinkProps> = props => {
+	const {
+		className = '',
+		Folder,
+		text,
+		isActive,
+		isActiveHandler,
+		setPage,
+		id
+	} = props
+
 	return (
 		<div
 			onClick={() => {

@@ -16,13 +16,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: FC<AppLinkProps> = props => {
-	const {
-		children,
-		className,
-		theme = AppLinkTheme.PRIMARY,
-		to,
-		...otherProps
-	} = props
+	const { children, className = '', theme = AppLinkTheme.PRIMARY, to } = props
 
 	const location = useLocation()
 	const isActive = location.pathname === to

@@ -9,7 +9,7 @@ interface AboutNavProps {
 	className?: string
 }
 
-export const AboutNav: FC<AboutNavProps> = ({ className }) => {
+export const AboutNav: FC<AboutNavProps> = ({ className = '' }) => {
 	return (
 		<nav className={classNames(cls.aboutNav, {}, [className])}>
 			<AboutNavLink to={'/about-me/professional-info'}>

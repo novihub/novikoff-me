@@ -7,7 +7,7 @@ interface ContainerProps {
 	children: ReactNode
 }
 
-export const Container: FC<ContainerProps> = ({ className, children }) => {
+export const Container: FC<ContainerProps> = ({ className = '', children }) => {
 	return (
 		<div className={classNames(cls.container, {}, [className])}>{children}</div>
 	)

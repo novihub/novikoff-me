@@ -13,10 +13,9 @@ interface PersonalInfoNavProps {
 	setPage: (page: string) => void
 }
 
-export const PersonalInfoNav: FC<PersonalInfoNavProps> = ({
-	className,
-	setPage
-}) => {
+export const PersonalInfoNav: FC<PersonalInfoNavProps> = props => {
+	const { className = '', setPage } = props
+
 	const { isOpen, toggleDropdown } = useDropdown()
 
 	const personalInfoLinks = [

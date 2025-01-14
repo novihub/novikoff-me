@@ -96,7 +96,7 @@ const gameSlice = createSlice({
 		setDirection(state) {
 			state.direction = state.savedKey
 		},
-		resetGame(state) {
+		resetGame(_) {
 			return initialState
 		}
 	}

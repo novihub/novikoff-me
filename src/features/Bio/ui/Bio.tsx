@@ -6,7 +6,7 @@ interface BioPageProps {
 	className?: string
 }
 
-export const BioPage: FC<BioPageProps> = ({ className }) => {
+export const BioPage: FC<BioPageProps> = ({ className = '' }) => {
 	const [lines, setLines] = useState(0)
 	const textContainerRef = useRef<HTMLDivElement | null>(null)
 

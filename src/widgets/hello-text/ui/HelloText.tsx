@@ -7,7 +7,7 @@ interface HelloTextProps {
 	className?: string
 }
 
-export const HelloText: FC<HelloTextProps> = ({ className }) => {
+export const HelloText: FC<HelloTextProps> = ({ className = '' }) => {
 	const text = 'Frontend Developer'
 
 	const { isTypingComplete, typedTextRef } = useTypeText(text, 100)
@@ -34,9 +34,7 @@ export const HelloText: FC<HelloTextProps> = ({ className }) => {
 				<p>
 					<span style={{ color: '#4D5BCE' }}>const</span>{' '}
 					<span style={{ color: '#43D9AD' }}>githubLink</span> ={' '}
-					<span style={{ color: '#E99287' }}>
-						“https://github.com/novikoff0”
-					</span>
+					<span style={{ color: '#E99287' }}>“https://github.com/novihub”</span>
 				</p>
 			</div>
 		</section>

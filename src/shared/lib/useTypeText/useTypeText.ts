@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 export function useTypeText(text: string, speed: number) {
-	const typedTextRef = React.useRef(null)
+	const typedTextRef = React.useRef<HTMLDivElement>(null)
 	const [isTypingComplete, setIsTypingComplete] = React.useState(false)
 	let index = 0
 
